@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tBLoyer = new System.Windows.Forms.TextBox();
             this.lbxLogements = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btSupprimeLogement = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tBIdLog = new System.Windows.Forms.TextBox();
             this.gpParc = new System.Windows.Forms.GroupBox();
@@ -44,27 +44,27 @@
             this.lNomParc = new System.Windows.Forms.Label();
             this.lbidParc = new System.Windows.Forms.Label();
             this.lbxParcs = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbParc = new System.Windows.Forms.ComboBox();
+            this.btSupprimerParc = new System.Windows.Forms.Button();
+            this.btAjoputerParc = new System.Windows.Forms.Button();
+            this.txParcNom = new System.Windows.Forms.TextBox();
+            this.txParcId = new System.Windows.Forms.TextBox();
             this.bubtAffecterLogement = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btAjouterLogement = new System.Windows.Forms.Button();
             this.tBAdrLog = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tBNbPieces = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btSupprimeLocataire = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tBIdLoc = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbxLocataires = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btAjouteLocataire = new System.Windows.Forms.Button();
             this.tBRevenuMensLoc = new System.Windows.Forms.TextBox();
             this.tBNomLoc = new System.Windows.Forms.TextBox();
             this.gpParc.SuspendLayout();
@@ -140,22 +140,23 @@
             this.lbxLogements.Location = new System.Drawing.Point(735, 29);
             this.lbxLogements.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbxLogements.Name = "lbxLogements";
-            this.lbxLogements.Size = new System.Drawing.Size(800, 244);
+            this.lbxLogements.Size = new System.Drawing.Size(1370, 244);
             this.lbxLogements.TabIndex = 5;
             // 
-            // button3
+            // btSupprimeLogement
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(518, 243);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 31);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "&Supprimer";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btSupprimeLogement.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btSupprimeLogement.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btSupprimeLogement.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSupprimeLogement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btSupprimeLogement.Location = new System.Drawing.Point(518, 243);
+            this.btSupprimeLogement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btSupprimeLogement.Name = "btSupprimeLogement";
+            this.btSupprimeLogement.Size = new System.Drawing.Size(148, 31);
+            this.btSupprimeLogement.TabIndex = 11;
+            this.btSupprimeLogement.Text = "&Supprimer";
+            this.btSupprimeLogement.UseVisualStyleBackColor = true;
+            this.btSupprimeLogement.Click += new System.EventHandler(this.btSupprimeLogement_Click);
             // 
             // label3
             // 
@@ -181,14 +182,14 @@
             this.gpParc.Controls.Add(this.lNomParc);
             this.gpParc.Controls.Add(this.lbidParc);
             this.gpParc.Controls.Add(this.lbxParcs);
-            this.gpParc.Controls.Add(this.comboBox1);
-            this.gpParc.Controls.Add(this.button7);
-            this.gpParc.Controls.Add(this.button6);
-            this.gpParc.Controls.Add(this.textBox2);
-            this.gpParc.Controls.Add(this.textBox1);
+            this.gpParc.Controls.Add(this.cbParc);
+            this.gpParc.Controls.Add(this.btSupprimerParc);
+            this.gpParc.Controls.Add(this.btAjoputerParc);
+            this.gpParc.Controls.Add(this.txParcNom);
+            this.gpParc.Controls.Add(this.txParcId);
             this.gpParc.Location = new System.Drawing.Point(12, 864);
             this.gpParc.Name = "gpParc";
-            this.gpParc.Size = new System.Drawing.Size(1553, 375);
+            this.gpParc.Size = new System.Drawing.Size(2113, 375);
             this.gpParc.TabIndex = 17;
             this.gpParc.TabStop = false;
             this.gpParc.Text = "Gestion Parc";
@@ -226,57 +227,59 @@
             this.lbxParcs.ItemHeight = 20;
             this.lbxParcs.Location = new System.Drawing.Point(727, 71);
             this.lbxParcs.Name = "lbxParcs";
-            this.lbxParcs.Size = new System.Drawing.Size(800, 264);
+            this.lbxParcs.Size = new System.Drawing.Size(1378, 264);
             this.lbxParcs.TabIndex = 14;
             // 
-            // comboBox1
+            // cbParc
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(358, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 28);
-            this.comboBox1.TabIndex = 2;
+            this.cbParc.FormattingEnabled = true;
+            this.cbParc.Location = new System.Drawing.Point(358, 71);
+            this.cbParc.Name = "cbParc";
+            this.cbParc.Size = new System.Drawing.Size(308, 28);
+            this.cbParc.TabIndex = 2;
             // 
-            // button7
+            // btSupprimerParc
             // 
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(190, 133);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(148, 31);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "&Supprimer";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btSupprimerParc.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btSupprimerParc.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btSupprimerParc.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSupprimerParc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btSupprimerParc.Location = new System.Drawing.Point(190, 133);
+            this.btSupprimerParc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btSupprimerParc.Name = "btSupprimerParc";
+            this.btSupprimerParc.Size = new System.Drawing.Size(148, 31);
+            this.btSupprimerParc.TabIndex = 4;
+            this.btSupprimerParc.Text = "&Supprimer";
+            this.btSupprimerParc.UseVisualStyleBackColor = true;
+            this.btSupprimerParc.Click += new System.EventHandler(this.btSupprimerParc_Click);
             // 
-            // button6
+            // btAjoputerParc
             // 
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button6.Location = new System.Drawing.Point(30, 133);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(148, 31);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "&Ajouter";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btAjoputerParc.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btAjoputerParc.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btAjoputerParc.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btAjoputerParc.Location = new System.Drawing.Point(30, 133);
+            this.btAjoputerParc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAjoputerParc.Name = "btAjoputerParc";
+            this.btAjoputerParc.Size = new System.Drawing.Size(148, 31);
+            this.btAjoputerParc.TabIndex = 3;
+            this.btAjoputerParc.Text = "&Ajouter";
+            this.btAjoputerParc.UseVisualStyleBackColor = true;
+            this.btAjoputerParc.Click += new System.EventHandler(this.btAjoputerParc_Click);
             // 
-            // textBox2
+            // txParcNom
             // 
-            this.textBox2.Location = new System.Drawing.Point(190, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 26);
-            this.textBox2.TabIndex = 1;
+            this.txParcNom.Location = new System.Drawing.Point(190, 71);
+            this.txParcNom.Name = "txParcNom";
+            this.txParcNom.Size = new System.Drawing.Size(148, 26);
+            this.txParcNom.TabIndex = 1;
             // 
-            // textBox1
+            // txParcId
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 26);
-            this.textBox1.TabIndex = 0;
+            this.txParcId.Location = new System.Drawing.Point(30, 71);
+            this.txParcId.Name = "txParcId";
+            this.txParcId.Size = new System.Drawing.Size(148, 26);
+            this.txParcId.TabIndex = 0;
             // 
             // bubtAffecterLogement
             // 
@@ -296,7 +299,7 @@
             this.gestionParcToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1830, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(2172, 33);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -320,18 +323,19 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Adresse Log";
             // 
-            // button4
+            // btAjouterLogement
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(354, 241);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 31);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "&Ajouter";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btAjouterLogement.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btAjouterLogement.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btAjouterLogement.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btAjouterLogement.Location = new System.Drawing.Point(354, 241);
+            this.btAjouterLogement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAjouterLogement.Name = "btAjouterLogement";
+            this.btAjouterLogement.Size = new System.Drawing.Size(148, 31);
+            this.btAjouterLogement.TabIndex = 10;
+            this.btAjouterLogement.Text = "&Ajouter";
+            this.btAjouterLogement.UseVisualStyleBackColor = true;
+            this.btAjouterLogement.Click += new System.EventHandler(this.btAjouterLogement_Click);
             // 
             // tBAdrLog
             // 
@@ -348,19 +352,19 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.tBLoyer);
             this.groupBox2.Controls.Add(this.lbxLogements);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btSupprimeLogement);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.tBIdLog);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btAjouterLogement);
             this.groupBox2.Controls.Add(this.tBNbPieces);
             this.groupBox2.Controls.Add(this.tBAdrLog);
             this.groupBox2.Location = new System.Drawing.Point(12, 479);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(1561, 332);
+            this.groupBox2.Size = new System.Drawing.Size(2113, 332);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gestion Logements";
@@ -373,19 +377,20 @@
             this.tBNbPieces.Size = new System.Drawing.Size(148, 26);
             this.tBNbPieces.TabIndex = 7;
             // 
-            // button2
+            // btSupprimeLocataire
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(510, 255);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 31);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "&Supprimer";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btSupprimeLocataire.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btSupprimeLocataire.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btSupprimeLocataire.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSupprimeLocataire.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btSupprimeLocataire.Location = new System.Drawing.Point(510, 255);
+            this.btSupprimeLocataire.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btSupprimeLocataire.Name = "btSupprimeLocataire";
+            this.btSupprimeLocataire.Size = new System.Drawing.Size(148, 31);
+            this.btSupprimeLocataire.TabIndex = 4;
+            this.btSupprimeLocataire.Text = "&Supprimer";
+            this.btSupprimeLocataire.UseVisualStyleBackColor = true;
+            this.btSupprimeLocataire.Click += new System.EventHandler(this.btSupprimeLocataire_Click);
             // 
             // label7
             // 
@@ -407,13 +412,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btSupprimeLocataire);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tBIdLoc);
             this.groupBox1.Controls.Add(this.lbxLocataires);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btAjouteLocataire);
             this.groupBox1.Controls.Add(this.tBRevenuMensLoc);
             this.groupBox1.Controls.Add(this.tBNomLoc);
             this.groupBox1.Location = new System.Drawing.Point(20, 63);
@@ -455,18 +460,19 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Nom Loc";
             // 
-            // button1
+            // btAjouteLocataire
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(346, 255);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 31);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "&Ajouter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAjouteLocataire.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btAjouteLocataire.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btAjouteLocataire.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btAjouteLocataire.Location = new System.Drawing.Point(346, 255);
+            this.btAjouteLocataire.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAjouteLocataire.Name = "btAjouteLocataire";
+            this.btAjouteLocataire.Size = new System.Drawing.Size(148, 31);
+            this.btAjouteLocataire.TabIndex = 3;
+            this.btAjouteLocataire.Text = "&Ajouter";
+            this.btAjouteLocataire.UseVisualStyleBackColor = true;
+            this.btAjouteLocataire.Click += new System.EventHandler(this.btAjouteLocataire_Click);
             // 
             // tBRevenuMensLoc
             // 
@@ -488,7 +494,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1830, 1286);
+            this.ClientSize = new System.Drawing.Size(2172, 1293);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.gpParc);
             this.Controls.Add(this.bubtAffecterLogement);
@@ -497,6 +503,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gpParc.ResumeLayout(false);
             this.gpParc.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -520,7 +527,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tBLoyer;
         private System.Windows.Forms.ListBox lbxLogements;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btSupprimeLogement;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tBIdLog;
         private System.Windows.Forms.GroupBox gpParc;
@@ -528,27 +535,27 @@
         private System.Windows.Forms.Label lNomParc;
         private System.Windows.Forms.Label lbidParc;
         private System.Windows.Forms.ListBox lbxParcs;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbParc;
+        private System.Windows.Forms.Button btSupprimerParc;
+        private System.Windows.Forms.Button btAjoputerParc;
+        private System.Windows.Forms.TextBox txParcNom;
+        private System.Windows.Forms.TextBox txParcId;
         private System.Windows.Forms.Button bubtAffecterLogement;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btAjouterLogement;
         private System.Windows.Forms.TextBox tBAdrLog;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tBNbPieces;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btSupprimeLocataire;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tBIdLoc;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lbxLocataires;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btAjouteLocataire;
         private System.Windows.Forms.TextBox tBRevenuMensLoc;
         private System.Windows.Forms.TextBox tBNomLoc;
     }

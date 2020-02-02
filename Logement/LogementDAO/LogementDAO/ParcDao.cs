@@ -38,7 +38,7 @@ namespace LogementDAO
 
         public void ajoute(Parc p)
         {
-            string r = "INSERT INTO "+nomTable+"  VALUES(null ,\"" + p.getNom() + "\") ;";
+            string r = "INSERT INTO "+nomTable+"  VALUES("+p.getId()+" ,\"" + p.getNom() + "\") ;";
 
             myconx.openConnexion();
             myconx.prepareCommande(r).ExecuteNonQuery();
@@ -62,7 +62,7 @@ namespace LogementDAO
 
         public void delete(int id)
         {
-            string r = "DELETE  FROM "+nomTable+" WHERE id=" + id + " ;";
+            string r = "DELETE  FROM "+nomTable+" WHERE ipparc=" + id + " ;";
             myconx.openConnexion();
             myconx.prepareCommande(r).ExecuteNonQuery();
             myconx.closeConnexion();

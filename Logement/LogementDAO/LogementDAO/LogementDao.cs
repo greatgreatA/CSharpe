@@ -17,12 +17,13 @@ namespace LogementDAO
 
         public List<Logement> selectTout()
         {
-            string r = "SELECT * FROM " + nomTable + " ;";
+            string r = "SELECT logement.IDLOG, adresse, nb_pieces, loyer, surface_ter from  logement left join maison on maison.IDLOG = logement.IDLOG;" ;
             List<Logement> liste = new List<Logement>();
             int id;
             string adresse;
             int pieces;
             double loyer;
+           
 
             myconx.openConnexion();
             reader = myconx.prepareCommande(r).ExecuteReader();
@@ -33,7 +34,12 @@ namespace LogementDAO
                 adresse = reader.GetString(1);
                 pieces = reader.GetInt32(2);
                 loyer = reader.GetDouble(3);
-                unLogement = new Logement(id, adresse, pieces, loyer);
+                
+                if (reader.IsDBNull(4))
+                    unLogement = new Logement(id, adresse, pieces, loyer);
+                else
+                    unLogement = new Maison(id, adresse, pieces, loyer, reader.GetDouble(4));
+                
                 liste.Add(unLogement);
             }
             reader.Close();
@@ -43,7 +49,7 @@ namespace LogementDAO
 
         public void ajoute(Logement l)
         {
-            string r = "INSERT INTO " + nomTable + "  VALUES(null ,\"" + l.getAdresse() + "\","+l.getNbPieces()+","+l.getLoyer()+") ;";
+            string r = "INSERT INTO " + nomTable + "  VALUES("+l.getid()+",null,null,\"" + l.getAdresse() + "\","+l.getNbPieces()+","+l.getLoyer()+") ;";
 
             myconx.openConnexion();
             myconx.prepareCommande(r).ExecuteNonQuery();
@@ -68,9 +74,11 @@ namespace LogementDAO
 
         public void delete(int id)
         {
-            string r = "DELETE  FROM " + nomTable + " WHERE id=" + id + " ;";
+            string r = "DELETE  FROM " + nomTable + " WHERE idlog=" + id + " ;";
+            string r1 = "DELETE FROM maison WHERE IDLOG=" + id + ";";
             myconx.openConnexion();
             myconx.prepareCommande(r).ExecuteNonQuery();
+            myconx.prepareCommande(r1).ExecuteNonQuery();
             myconx.closeConnexion();
         }
     }

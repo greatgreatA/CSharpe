@@ -41,17 +41,26 @@ namespace LogementDAO
 
         public void ajoute(Locataire l)
         {
-            string r = "INSERT INTO " + nomTable + "  VALUES(null ,\"" + l.getNom() + "\"," + l.getRevenu() + ") ;";
+            string r = "INSERT INTO " + nomTable + "  VALUES("+ l.getId()+ ",\"" + l.getNom() + "\"," + l.getRevenu() + ") ;";
 
-            myconx.openConnexion();
-            myconx.prepareCommande(r).ExecuteNonQuery();
-            myconx.closeConnexion();
+            try
+            {
+                myconx.openConnexion();
+                myconx.prepareCommande(r).ExecuteNonQuery();
+                myconx.closeConnexion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public Locataire find(int id)
         {
             
-            string r = "SELECT * FROM " + nomTable + " WHERE id=" + id + " ;";
+            string r = "SELECT * FROM " + nomTable + " WHERE idloc=" + id + " ;";
 
             myconx.openConnexion();
             reader = myconx.prepareCommande(r).ExecuteReader();
@@ -65,7 +74,7 @@ namespace LogementDAO
 
         public void delete(int id)
         {
-            string r = "DELETE  FROM " + nomTable + " WHERE id=" + id + " ;";
+            string r = "DELETE  FROM " + nomTable + " WHERE idloc=" + id + " ;";
             myconx.openConnexion();
             myconx.prepareCommande(r).ExecuteNonQuery();
             myconx.closeConnexion();

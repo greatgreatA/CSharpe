@@ -37,25 +37,17 @@ namespace ControleurLog
             return listeDeParcs;
         }
         //serialisation
-       /* public  void sauvegarde()
-        {
-            FileStream stream = new FileStream("data", FileMode.Create);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            binaryFormatter.Serialize(stream, listeDeLocataire);
-            binaryFormatter.Serialize(stream, listeDeLogements);
-            binaryFormatter.Serialize(stream, listeDeParcs);
-            stream.Close();
+        /* public  void sauvegarde()
+         {
+             FileStream stream = new FileStream("data", FileMode.Create);
+             BinaryFormatter binaryFormatter = new BinaryFormatter();
+             binaryFormatter.Serialize(stream, listeDeLocataire);
+             binaryFormatter.Serialize(stream, listeDeLogements);
+             binaryFormatter.Serialize(stream, listeDeParcs);
+             stream.Close();
 
-        }*/
+         }*/
 
-        public  void chargement()
-        {
-            listeDeLocataire = locataireDao.selectTout();
-            listeDeLogements = logementDao.selectTout(); ;
-            listeDeParcs = parcDao.selectTout();
-            
-
-        }
 
         //Constructeur du Manager manager
         public Manager()
@@ -63,40 +55,85 @@ namespace ControleurLog
             listeDeLocataire = new List<Locataire>();
             listeDeLogements = new List<Logement>();
             listeDeParcs = new List<Parc>();
+            this.chargement();
         }
+
+
+        public  void chargement()
+        {
+            listeDeLocataire = locataireDao.selectTout();
+            listeDeLogements = logementDao.selectTout(); ;
+            listeDeParcs = parcDao.selectTout();
+           
+        }
+
+        
         // Methodes du manager 
         public  void ajouterLocataire(int id, string nom, double revenuMens)
         {
            this.listeDeLocataire.Add(new Locataire(id, nom, revenuMens));
+            locataireDao.ajoute(new Locataire(id, nom, revenuMens));
+            listeDeLocataire = locataireDao.selectTout();
         }
-        public  void supprimelocataire(int index)
+        
+        public  void supprimelocataire(Locataire locataire)
         {
-            this.listeDeLocataire.RemoveAt(index);
+            this.listeDeLocataire.Remove(locataire);
+            locataireDao.delete(locataire.getId());
+            listeDeLocataire = locataireDao.selectTout();
         }
+        
+
         public  void ajouterLogement(int id, string adresse, int nbpieces, double loyer)
         {
             this.listeDeLogements.Add(new Logement(id, adresse, nbpieces, loyer));
+            logementDao.ajoute(new Logement(id, adresse, nbpieces, loyer));
+            listeDeLogements = logementDao.selectTout();
         }
-        public  void ajouterLogement(int id, string adresse, int nbpieces, double loyer, double surfaceTerrain)
+
+
+        public  void ajouterMaison(int id, string adresse, int nbpieces, double loyer, double surfaceTerrain)
         {
             this.listeDeLogements.Add(new Maison(id, adresse, nbpieces, loyer, surfaceTerrain));
+            maisonDao.ajoute(new Maison(id, adresse, nbpieces, loyer, surfaceTerrain));
+            listeDeLogements = logementDao.selectTout();
         }
-        public  void suppprimerLogement(int index)
+        
+        
+        public  void supprimerLogement(Logement logement)
         {
-            this.listeDeLogements.RemoveAt(index);
+            
+            this.listeDeLogements.Remove(logement);
+            logementDao.delete(logement.getid());
+            listeDeLogements = logementDao.selectTout();
+
         }
+
+
         public  void ajouterParc(int id,string name, List<Logement> _listeDeLogement)
         {
             this.listeDeParcs.Add(new Parc(id,_listeDeLogement,name));
         }
+
+
         public  void ajouterParc(int id , string name)
         {
             this.listeDeParcs.Add(new Parc(id,name));
+            parcDao.ajoute(new Parc(id, name));
+            listeDeParcs = parcDao.selectTout();
         }
-        public  void supprimeParc(int index)
+
+
+        public  void supprimeParc(Parc parc)
         {
-            listeDeParcs.RemoveAt(index);
+            
+            listeDeParcs.Remove(parc);
+            parcDao.delete(parc.getId());
+            listeDeParcs = parcDao.selectTout();
+
         }
+
+
         public  bool affecterLocataireALogement(Locataire locataire, Logement logement)
         {
             return logement.setLocataire(locataire);

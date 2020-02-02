@@ -84,6 +84,10 @@
       <Project>{b5b21b2a-5c8e-403f-ae89-11ce95196d50}</Project>
       <Name>ControleurLog</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModeleLog\ModeleLog.csproj">
+      <Project>{e6c12bfc-9e57-4db9-9076-fbda13b4b4ab}</Project>
+      <Name>ModeleLog</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

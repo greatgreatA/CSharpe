@@ -8,13 +8,13 @@ namespace ModeleLog
 {
     public class Parc
     {
-        private static int count = 0;
+        
         private string nom;
         public string getNom()
         {
             return this.nom;
         }
-        private int id =0;
+        private int id;
         public int getId() { return this.id; }
         
         private List<Logement> logements;
@@ -27,18 +27,15 @@ namespace ModeleLog
         public Parc(string nom) { 
             this.logements = new List<Logement>(0);
             this.nom = nom;
-            count ++;
-            this.id += count;
+           
         }
         public Parc(int _id,string nom) { this.logements = new List<Logement>();
-            count++;
-            this.id = _id + count;
+            this.id = _id;
             this.nom = nom;
            
         }
         public Parc(int _id, List<Logement> _logements,string nom) { this.logements = _logements;
-            count++;
-            this.id = _id + count;
+          
             this.nom = nom;
         
         }
