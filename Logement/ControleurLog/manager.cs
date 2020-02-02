@@ -4,8 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogementDB.dao;
-using Modele;
+using ModeleLog;
+using LogementDAO;
+
 using MySql.Data.MySqlClient;
 
 

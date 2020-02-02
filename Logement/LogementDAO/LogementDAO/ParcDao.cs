@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using Modele;
+using ModeleLog;
 
-namespace LogementDB.dao
+namespace LogementDAO
 {
     public class ParcDao
     {
