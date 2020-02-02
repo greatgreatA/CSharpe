@@ -5,11 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace LogementDAO
+namespace LogementDB.dao
 {
     public class ConnexionToMysql
     {
-        private String connexionString;//"SERVER=" ";" "DATABASE"= ";" "UID=" ";" "PASSWORD=" ";"
+        //"SERVER=" ";" "DATABASE"= ";" "UID=" ";" "PASSWORD=" ";"
+        private static String connexionString= "server=localhost;port=3306;user id=root";
+        public static string getConnString()
+        {
+            return connexionString;
+        }
+        
         private MySqlConnection mysqlConnexion;
         private static readonly object mylock = new object();
         private static ConnexionToMysql uneInstance = null;
