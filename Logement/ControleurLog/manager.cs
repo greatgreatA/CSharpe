@@ -10,34 +10,34 @@ using LogementDAO;
 using MySql.Data.MySqlClient;
 
 
-namespace LogementDB.controleur
+namespace ControleurLog
 {
     public class Manager
     {
-        public static LocataireDao locataireDao = new LocataireDao();
-        public static LogementDao logementDao = new LogementDao();
-        public static ParcDao parcDao = new ParcDao();
-        public static MaisonDao maisonDao = new MaisonDao();
+        public LocataireDao locataireDao = new LocataireDao();
+        public  LogementDao logementDao = new LogementDao();
+        public  ParcDao parcDao = new ParcDao();
+        public  MaisonDao maisonDao = new MaisonDao();
 
         // listes des proprietes et leurs acsesseurs
 
-        private static List<Locataire> listeDeLocataire;
-        public static List<Locataire> getListeLocataires()
+        private  List<Locataire> listeDeLocataire;
+        public  List<Locataire> getListeLocataires()
         {
-            return Manager.listeDeLocataire;
+            return this.listeDeLocataire;
         }
-        private static List<Logement> listeDeLogements;
-        public static List<Logement> getListeDeLogements()
+        private  List<Logement> listeDeLogements;
+        public  List<Logement> getListeDeLogements()
         {
             return listeDeLogements;
         }
-        private static List<Parc> listeDeParcs;
-        public static List<Parc> getListeDeParcs()
+        private  List<Parc> listeDeParcs;
+        public  List<Parc> getListeDeParcs()
         {
             return listeDeParcs;
         }
         //serialisation
-       /* public static void sauvegarde()
+       /* public  void sauvegarde()
         {
             FileStream stream = new FileStream("data", FileMode.Create);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -48,7 +48,7 @@ namespace LogementDB.controleur
 
         }*/
 
-        public static void chargement()
+        public  void chargement()
         {
             listeDeLocataire = locataireDao.selectTout();
             listeDeLogements = logementDao.selectTout(); ;
@@ -65,47 +65,47 @@ namespace LogementDB.controleur
             listeDeParcs = new List<Parc>();
         }
         // Methodes du manager 
-        public static void ajouterLocataire(int id, string nom, double revenuMens)
+        public  void ajouterLocataire(int id, string nom, double revenuMens)
         {
-            Manager.listeDeLocataire.Add(new Locataire(id, nom, revenuMens));
+           this.listeDeLocataire.Add(new Locataire(id, nom, revenuMens));
         }
-        public static void supprimelocataire(int index)
+        public  void supprimelocataire(int index)
         {
-            Manager.listeDeLocataire.RemoveAt(index);
+            this.listeDeLocataire.RemoveAt(index);
         }
-        public static void ajouterLogement(int id, string adresse, int nbpieces, double loyer)
+        public  void ajouterLogement(int id, string adresse, int nbpieces, double loyer)
         {
-            Manager.listeDeLogements.Add(new Logement(id, adresse, nbpieces, loyer));
+            this.listeDeLogements.Add(new Logement(id, adresse, nbpieces, loyer));
         }
-        public static void ajouterLogement(int id, string adresse, int nbpieces, double loyer, double surfaceTerrain)
+        public  void ajouterLogement(int id, string adresse, int nbpieces, double loyer, double surfaceTerrain)
         {
-            Manager.listeDeLogements.Add(new Maison(id, adresse, nbpieces, loyer, surfaceTerrain));
+            this.listeDeLogements.Add(new Maison(id, adresse, nbpieces, loyer, surfaceTerrain));
         }
-        public static void suppprimerLogement(int index)
+        public  void suppprimerLogement(int index)
         {
-            Manager.listeDeLogements.RemoveAt(index);
+            this.listeDeLogements.RemoveAt(index);
         }
-        public static void ajouterParc(int id,string name, List<Logement> _listeDeLogement)
+        public  void ajouterParc(int id,string name, List<Logement> _listeDeLogement)
         {
-            Manager.listeDeParcs.Add(new Parc(id,_listeDeLogement,name));
+            this.listeDeParcs.Add(new Parc(id,_listeDeLogement,name));
         }
-        public static void ajouterParc(int id , string name)
+        public  void ajouterParc(int id , string name)
         {
-            Manager.listeDeParcs.Add(new Parc(id,name));
+            this.listeDeParcs.Add(new Parc(id,name));
         }
-        public static void supprimeParc(int index)
+        public  void supprimeParc(int index)
         {
             listeDeParcs.RemoveAt(index);
         }
-        public static bool affecterLocataireALogement(Locataire locataire, Logement logement)
+        public  bool affecterLocataireALogement(Locataire locataire, Logement logement)
         {
             return logement.setLocataire(locataire);
         }
-        public static void affecterLogementAParc(Logement logement, Parc parc)
+        public  void affecterLogementAParc(Logement logement, Parc parc)
         {
             parc.ajouterLogement(logement);
         }
-        public static void desaffecterUnLogementDunParc(Logement logement, Parc parc)
+        public  void desaffecterUnLogementDunParc(Logement logement, Parc parc)
         {
             parc.supprimeLogement(logement);
         }
