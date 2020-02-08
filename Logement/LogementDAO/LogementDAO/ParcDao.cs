@@ -67,5 +67,13 @@ namespace LogementDAO
             myconx.prepareCommande(r).ExecuteNonQuery();
             myconx.closeConnexion();
         }
+
+        public void update(Parc parc)
+        {
+            string r = "UPDATE "+ nomTable +" SET nom="+parc.Nom+" WHERE id="+parc.Id +";";
+            myconx.openConnexion();
+            myconx.prepareCommande(r).ExecuteNonQuery();
+            myconx.closeConnexion();
+        }
     }
 }

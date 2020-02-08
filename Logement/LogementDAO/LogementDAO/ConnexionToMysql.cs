@@ -10,7 +10,7 @@ namespace LogementDAO
     public class ConnexionToMysql
     {
         //"SERVER=" ";" "DATABASE"= ";" "UID=" ";" "PASSWORD=" ";"
-        private static String connexionString = "server=localhost;port=3308;user id=root;database=mlr1mysql;";
+        private static String connexionString = "server=localhost;port=3308;user id=root;database=;";
         public static string getConnString()
         {
             return connexionString;

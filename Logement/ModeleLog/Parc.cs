@@ -12,37 +12,44 @@ namespace ModeleLog
         private string nom;
         public string getNom()
         {
-            return this.nom;
+            return this.Nom;
         }
         private int id;
-        public int getId() { return this.id; }
+        public int getId() { return this.Id; }
         
         private List<Logement> logements;
+
+        public string Nom { get => nom; set => nom = value; }
+        public int Id { get => id; set => id = value; }
+
         public List<Logement> getLogements() { return this.logements;}
         public void  setListLogements(List<Logement> listeDeLogements)
         {
             this.logements = listeDeLogements;
         }
 
+       
+        
+        
         public Parc()
         {
             this.logements = new List<Logement>();
-            this.nom = "";
-            this.id = 0;
+            this.Nom = "";
+            this.Id = 0;
         }
         public Parc(string nom) { 
             this.logements = new List<Logement>(0);
-            this.nom = nom;
+            this.Nom = nom;
            
         }
         public Parc(int _id,string nom) { this.logements = new List<Logement>();
-            this.id = _id;
-            this.nom = nom;
+            this.Id = _id;
+            this.Nom = nom;
            
         }
         public Parc(int _id, List<Logement> _logements,string nom) { this.logements = _logements;
           
-            this.nom = nom;
+            this.Nom = nom;
         
         }
 
@@ -105,7 +112,7 @@ namespace ModeleLog
         }
         public override string ToString()
         {
-            return ("Parc Id : " + this.id +" Nom :"+this.nom);
+            return ("Parc Id : " + this.Id +" Nom :"+this.Nom);
         }
     }
 }
