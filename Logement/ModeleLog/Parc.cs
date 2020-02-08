@@ -24,6 +24,12 @@ namespace ModeleLog
             this.logements = listeDeLogements;
         }
 
+        public Parc()
+        {
+            this.logements = new List<Logement>();
+            this.nom = "";
+            this.id = 0;
+        }
         public Parc(string nom) { 
             this.logements = new List<Logement>(0);
             this.nom = nom;
