@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="logementModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="locataire">
+          <Key>
+            <PropertyRef Name="IDLOC" />
+          </Key>
+          <Property Name="IDLOC" Type="int" Nullable="false" />
+          <Property Name="NOM" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="REVENU_MENSUEL" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="logement">
+          <Key>
+            <PropertyRef Name="IDLOG" />
+          </Key>
+          <Property Name="IDLOG" Type="int" Nullable="false" />
+          <Property Name="IDLOC" Type="int" />
+          <Property Name="IPPARC" Type="smallint" />
+          <Property Name="ADRESSE" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="NB_PIECES" Type="int" Nullable="false" />
+          <Property Name="LOYER" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="maison">
+          <Key>
+            <PropertyRef Name="IDLOG" />
+          </Key>
+          <Property Name="IDLOG" Type="int" Nullable="false" />
+          <Property Name="SURFACE_TER" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parc">
+          <Key>
+            <PropertyRef Name="IPPARC" />
+          </Key>
+          <Property Name="IPPARC" Type="smallint" Nullable="false" />
+          <Property Name="NOM" Type="char" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="logementModelStoreContainer">
+          <EntitySet Name="locataire" EntityType="Self.locataire" Schema="logement" store:Type="Tables" />
+          <EntitySet Name="logement" EntityType="Self.logement" Schema="logement" store:Type="Tables" />
+          <EntitySet Name="maison" EntityType="Self.maison" Schema="logement" store:Type="Tables" />
+          <EntitySet Name="parc" EntityType="Self.parc" Schema="logement" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="logementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="locataire">
+          <Key>
+            <PropertyRef Name="IDLOC" />
+          </Key>
+          <Property Name="IDLOC" Type="Int32" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REVENU_MENSUEL" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="logement">
+          <Key>
+            <PropertyRef Name="IDLOG" />
+          </Key>
+          <Property Name="IDLOG" Type="Int32" Nullable="false" />
+          <Property Name="IDLOC" Type="Int32" />
+          <Property Name="IPPARC" Type="Int16" />
+          <Property Name="ADRESSE" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NB_PIECES" Type="Int32" Nullable="false" />
+          <Property Name="LOYER" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="maison" BaseType="logementModel.logement">
+          <Property Name="SURFACE_TER" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parc">
+          <Key>
+            <PropertyRef Name="IPPARC" />
+          </Key>
+          <Property Name="IPPARC" Type="Int16" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="logementEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="locataires" EntityType="Self.locataire" />
+          <EntitySet Name="logements" EntityType="Self.logement" />
+          <EntitySet Name="parcs" EntityType="Self.parc" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="logementModelStoreContainer" CdmEntityContainer="logementEntities1">
+          <EntitySetMapping Name="locataires">
+            <EntityTypeMapping TypeName="logementModel.locataire">
+              <MappingFragment StoreEntitySet="locataire">
+                <ScalarProperty Name="IDLOC" ColumnName="IDLOC" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="REVENU_MENSUEL" ColumnName="REVENU_MENSUEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logements">
+            <EntityTypeMapping TypeName="IsTypeOf(logementModel.logement)">
+              <MappingFragment StoreEntitySet="logement">
+                <ScalarProperty Name="IDLOG" ColumnName="IDLOG" />
+                <ScalarProperty Name="LOYER" ColumnName="LOYER" />
+                <ScalarProperty Name="NB_PIECES" ColumnName="NB_PIECES" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="IPPARC" ColumnName="IPPARC" />
+                <ScalarProperty Name="IDLOC" ColumnName="IDLOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(logementModel.maison)">
+              <MappingFragment StoreEntitySet="maison">
+                <ScalarProperty Name="SURFACE_TER" ColumnName="SURFACE_TER" />
+                <ScalarProperty Name="IDLOG" ColumnName="IDLOG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parcs">
+            <EntityTypeMapping TypeName="logementModel.parc">
+              <MappingFragment StoreEntitySet="parc">
+                <ScalarProperty Name="IPPARC" ColumnName="IPPARC" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
